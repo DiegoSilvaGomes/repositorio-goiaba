@@ -45,35 +45,35 @@ namespace Users.API.Controllers
 
         // POST /Users
         [HttpPost]
-        public IActionResult CreateUser([FromBody] CreateUserModel createUser)
+        public IActionResult CreateUser([FromBody] User user)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
+            
+            var createUser = new User(user.FirstName, user.Surname, user.Age);
 
-            var user = new User(createUser.firstName, createUser.surname, createUser.age);
+            repository.Add(createUser);
 
-            repository.Add(user);
+            logger.LogInformation($"Endpoint -> api/users -> POST -> User(id) {createUser.Id} {createUser.CreationDate}");
 
-            logger.LogInformation($"Endpoint -> api/users -> POST -> User(id) {user.Id} {user.CreationDate}");
-
-            return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+            return CreatedAtAction(nameof(GetById), new { id = createUser.Id }, createUser);
         }
 
         // PUT /Users/{id}
         [HttpPut("{id}")]
-        public IActionResult UpdateUser(Guid id,[FromBody] UpdateUserModel updateUser)
+        public IActionResult UpdateUser(Guid id,[FromBody] User user)
         {
 
-            var user = repository.GetById(id);
+            var updateUser = repository.GetById(id);
 
-            if (user == null)
+            if (updateUser == null)
                 return NotFound();
 
-            user.Update(updateUser.name, updateUser.surname, updateUser.age);
+            updateUser.Update(user.FirstName, user.Surname, user.Age);
 
-            repository.Update(user);
+            repository.Update(updateUser);
 
-            logger.LogInformation($"Endpoint -> api/users/id -> PUT(id) {user.Id} {DateTime.Now}");
+            logger.LogInformation($"Endpoint -> api/users/id -> PUT(id) {updateUser.Id} {DateTime.Now}");
             
             return NoContent();
         }
