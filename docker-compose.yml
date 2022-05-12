@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - SA_PASSWORD=Numsey#2022Passw00rd
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+
+  users.api:
+    image: ${DOCKER_REGISTRY-}usersapi
+    depends_on:
+     - sqldata
+    build:
+      context: .
+      dockerfile: Users.API/Dockerfile
+    environment:
+      DbServer: "sqldata"
+      DbPort: "1433"
+      DbUser: "sa"
+      Password: "Numsey#2022Passw00rd"
+      Database: "UsersDB"
+    ports:
+     - "8081:80"
+     - "8001:443"
+
+     
