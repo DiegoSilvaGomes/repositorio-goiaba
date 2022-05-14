@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = @"Server=sqldata,1433;Database=usersdb;User=sa;Password=Numsey#2022Passw00rd";
+
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<UserDbContext>(options => 
         options.UseSqlServer(connectionString));
