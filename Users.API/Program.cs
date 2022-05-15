@@ -1,21 +1,27 @@
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Users.API.Data;
 using Users.API.Data.Repositories;
 using Users.API.Models;
+using Users.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var connectionString = @"Server=sqldata,1433;Database=usersdb;User=sa;Password=Numsey#2022Passw00rd";
+var server = builder.Configuration["DBServer"] ?? "sqldata";
+var port = builder.Configuration["DBPort"] ?? "1433";
+var user = builder.Configuration["DBUser"] ?? "SA";
+var password = builder.Configuration["DBPassword"] ?? "Numsey#2022Passw00rd";
+var database = builder.Configuration["Database"] ?? "usersdb";
 
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = $"Server={server};Initial Catalog={database};User ID={user};Password={password}";
 
 builder.Services.AddDbContext<UserDbContext>(options => 
-        options.UseSqlServer(connectionString));
+        options.UseSqlServer($"Server={server};Initial Catalog={database};User ID={user};Password={password}"
+));
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-
 
 
 builder.Services.AddControllers();
@@ -31,6 +37,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+DataBaseManagementService.MigrationInitialisation(app);
 
 app.UseHttpsRedirection();
 

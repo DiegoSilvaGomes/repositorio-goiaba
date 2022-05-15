@@ -7,11 +7,13 @@ services:
     image: usersapi
     build:
       context: .
-      dockerfile: Users.API/Dockerfile
+      dockerfile: ./Dockerfile
     ports:
       - 8081:80
       - 8001:443
     environment:
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=8001
       - ASPNETCORE_ENVIRONMENT=Development
     volumes:
       - ~/.vsdbg:/remote_debugger:rw

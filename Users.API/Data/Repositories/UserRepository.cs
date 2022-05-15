@@ -29,7 +29,7 @@ namespace Users.API.Data.Repositories
 
         public User GetById(Guid id)
         {
-            return context.Users.FirstOrDefault(x => x.Id == id);
+            return context.Users.SingleOrDefault(x => x.Id == id);
         }
 
         public void Update(User user)

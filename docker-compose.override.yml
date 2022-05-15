@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  usersapi:
+    environment:
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=8001
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8081:80"
+      - "8001:443"
+    volumes:
+      - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
+      - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/
