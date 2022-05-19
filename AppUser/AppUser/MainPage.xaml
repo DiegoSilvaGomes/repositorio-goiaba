@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppUser.MainPage">
+
+    <StackLayout Padding="20">
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="User Registration" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Entry Placeholder="First Name" x:Name="entFirstName"/>
+        <Entry Placeholder="Surname" x:Name="entSurname"/>
+        <Entry Placeholder="Age" x:Name="entAge" Keyboard="Numeric"/>
+        <Button Text="Register" x:Name="btRegister" Clicked="btRegister_Clicked"/>
+    </StackLayout>
+
+</ContentPage>
