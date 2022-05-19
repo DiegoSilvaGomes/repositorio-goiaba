@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Users.UnitTests", "Users.Un
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{42420A91-52C2-4D76-9B9E-6820841B6316}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUser.UWP", "..\AppUser\AppUser.UWP\AppUser.UWP.csproj", "{8023DDA0-FA6D-4B68-954E-A3715137962C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUser.UWP", "AppUser\AppUser.UWP\AppUser.UWP.csproj", "{8023DDA0-FA6D-4B68-954E-A3715137962C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUser.Android", "..\AppUser\AppUser.Android\AppUser.Android.csproj", "{F3CDF7F3-9A92-4FFF-B0C6-C458C40DE5CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUser.Android", "AppUser\AppUser.Android\AppUser.Android.csproj", "{F3CDF7F3-9A92-4FFF-B0C6-C458C40DE5CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUser.iOS", "..\AppUser\AppUser.iOS\AppUser.iOS.csproj", "{EE886584-7352-489E-9ECC-59374584C0CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUser.iOS", "AppUser\AppUser.iOS\AppUser.iOS.csproj", "{EE886584-7352-489E-9ECC-59374584C0CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUser", "..\AppUser\AppUser\AppUser.csproj", "{7F143B89-230E-4745-AF25-E454B932AE29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUser", "AppUser\AppUser\AppUser.csproj", "{7F143B89-230E-4745-AF25-E454B932AE29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
