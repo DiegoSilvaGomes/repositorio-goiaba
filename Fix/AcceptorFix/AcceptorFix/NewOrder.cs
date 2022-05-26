@@ -22,7 +22,15 @@ namespace AcceptorFix
         public string TestReqID { get; set; }
         public string BeginSeqNo { get; set; }
         public string EndSeqNo { get; set; }
-
+        public string ClOrdID { get; set; }
+        public string HandlInst { get; set; }
+        public string Symbol { get; set; }
+        public string Side { get; set; }
+        public string TransactTime { get; set; }
+        public string OrdType { get; set; }
+        public string Price { get; set; }
+        public string OrderQty { get; set; }
+        public string NoPartyIDs { get; set; }
     }
 }
 
